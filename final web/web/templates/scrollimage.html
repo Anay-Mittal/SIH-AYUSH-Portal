@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Startup AYUSH Portal</title>
+
+	<link rel="icon" href="logo.png">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+		
+	<style>
+		@keyframes scroll {
+			0% {
+				transform: translateY(0);
+			}
+
+			100% {
+				transform: translateY(calc(-100% * 18));
+				/* 18 is no of articles */
+			}
+		}
+
+		@keyframes scroll-text {
+			0% {
+				transform: translateX(100%);
+			}
+
+			100% {
+				transform: translateX(-100%);
+			}
+		}
+
+		body {
+			overflow-x: hidden;
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+			background: linear-gradient(278.94deg, #489793c4 -4.21%, #6f914fd5 86.11%);
+			transition: background 0.5s ease-in-out;
+		}
+
+		hr {
+			opacity: 0;
+		}
+
+		.banner {
+			overflow: hidden;
+			padding-top: 250px;
+			color: black;
+			background-position-y: center;
+			background-size: cover;
+			background-image: url("Artboard 1.png");
+		}
+
+		.banner-line {
+			overflow: hidden;
+			height: 35px;
+			background-color: rgba(0, 128, 0, 0.6);
+		}
+
+		.banner-line-text {
+			color: white;
+			font-size: 20px;
+			font-style: normal;
+			font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+			font-variant: small-caps;
+			font-weight: bold;
+			animation: scroll-text 20s linear infinite;
+		}
+
+		.navbar {
+			text-align: center;
+			position: sticky;
+			top: 0;
+		}
+
+		.navbar-nav {
+			justify-content: center;
+		}
+		
+
+		@font-face {
+			font-family: "myFont";
+			src: url("myFont.woff2");
+		}
+
+		.outlined-text {
+			position: relative;
+			margin-left: 240px;
+			top: -175px;
+			
+			font-family: 'Croissant One', cursive;
+
+			font-size: 35px;
+
+		}
+		
+
+		.news-section-heading {
+			background-color: rgb(246, 248, 246);
+			padding: 5px 10px;
+			border-radius: 8px;
+			border: 5px solid #2c5831;
+			font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+			margin-top: 12.5px;
+			margin-bottom: 10px;
+			max-width: max-content;
+		}
+
+		.news-section {
+			background-color: rgba(0, 128, 0, 0.6);
+			border: 5px solid #2c5831;
+			border-radius: 8px;
+			padding: 5px 10px;
+			overflow: hidden;
+			max-height: 520px;
+		}
+
+		.news-section:hover .news-article {
+			animation-play-state: paused;
+		}
+
+		.news-article {
+			height: 60px;
+			overflow: auto;
+			background-color: rgba(255, 255, 255, 0.938);
+			padding: 15px;
+			border-radius: 5px;
+			margin-bottom: 10px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			animation: scroll 20s linear infinite;
+			animation-play-state: running;
+		}
+
+		.glossary-section-heading {
+			background-color: rgb(246, 248, 246);
+			padding: 5px 10px;
+			border-radius: 8px;
+			border: 5px solid #2c5831;
+			font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+			margin-top: 12.5px;
+			margin-bottom: 10px;
+			max-width: max-content;
+		}
+
+		.glossary {
+			height: 520px;
+			background-color: #2c5831;
+			border: 2px solid #2c5831;
+			border-radius: 8px;
+
+			padding: 10px;
+		}
+
+		.glossary img {
+			height: 500px;
+		}
+
+		.btn-cool {
+			font-family: 'Lemon Milk';
+
+			display: inline-block;
+			padding: 15px 30px;
+			transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+		}
+
+		.btn-cool:hover {
+			transform: scale(1.05);
+			background-color: #00b35c;
+		}
+
+		.btn-cool:focus,
+		.btn-cool:active {
+			outline: none;
+			background-color: #00b35c;
+			color: #ffffff;
+		}
+
+		.popover {
+			max-width: 300px;
+			font-size: 18px;
+			background: linear-gradient(278.94deg, #a4a54e -4.21%, #68a67a 86.11%);
+			color: white;
+			border-radius: 10px;
+			box-shadow: 0 25px 20px rgba(0, 0, 0, 0.1);
+			border-color: black;
+			border-width: 3px;
+			font-family: 'lemon milk';
+			font-size: large;
+
+		}
+
+		.card-section {
+			background-color: rgb(90, 122, 89);
+			/* Set your desired background color */
+			color: black;
+			height: 700px;
+			border: #bb11ea;
+			border-radius: 18px;
+			padding: 5px;
+			margin-bottom: 50px;
+		}
+
+
+		.dropdown {
+			position: relative;
+			display: inline-block;
+		}
+
+		.card {
+			margin: 20px;
+			background-color: honeydew;
+			border: #6f914fd5;
+			box-shadow: black;
+		}
+
+		.card:hover {
+			transform: scale(1.05);
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		}
+
+		.card-body:hover {
+			background-color: #71a6dc;
+		}
+
+		.card:hover .card-img-top {
+			filter: grayscale(50%);
+
+		}
+		.card .card-img-top {
+		 width: 100%; /* Set a specific width */
+		 height: 470px; /* Allow height to scale automatically */
+		}
+		.col-md-4 {
+  float: left;
+}
+
+.col-md-8 {
+  float: right;
+}
+
+
+		.about-us-section {
+			background-color: rgb(142, 160, 123);
+			/* Set your desired background color */
+			color: black;
+			height: max-content;
+		}
+
+		.image-container {
+			display: inline-block;
+		}
+
+		.image-container2 {
+			display: inline-block;
+		}
+
+		.image-container img {
+			width: min-content;
+			height: 200px;
+			margin-left: 1200px;
+			margin-top: 10px;
+
+		}
+
+		.image-container2 img {
+			width: min-content;
+			height: 200px;
+			margin-left: -1200px;
+			margin-top: 10px;
+
+		}
+
+		.footer {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			padding: 20px;
+			background-color: black;
+			color: white;
+		}
+		.footer-some {
+			align-content: space-around;
+		}
+
+		/* Styles for the button to open the dropdown */
+		.dropdown .dropdown-btn {
+			background-color: #f1f1f1;
+			padding: 10px 20px;
+			border: none;
+			cursor: pointer;
+		}
+
+		/* Styles for the dropdown content */
+		.dropdown-content {
+			display: none;
+			position: absolute;
+			background-color: #fff;
+			min-width: 160px;
+			box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+			z-index: 1;
+		}
+
+		/* Styles for the dropdown items */
+		.dropdown-content a {
+			padding: 12px 16px;
+			text-decoration: none;
+			display: block;
+		}
+
+		/* Show the dropdown content when hovering over the button */
+		.dropdown:hover .dropdown-content {
+			display: block;
+		}
+
+		.btn-container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.read-more-link {
+			text-decoration: none;
+			color: #007bff;
+			/* or any other color you prefer */
+			margin-top: 10px;
+			font-size: 14px;
+		}
+
+		/* timeline */
+
+		.main-timeline2 {
+			padding-top: 50px;
+			overflow: hidden;
+			position: relative
+		}
+
+		.main-timeline2:before {
+			content: "";
+			width: 7px;
+			height: 100%;
+			background: #084772;
+			margin: 0 auto;
+			position: absolute;
+			top: 80px;
+			left: 0;
+			right: 0
+		}
+
+		.main-timeline2 .timeline {
+			width: 50%;
+			float: left;
+			padding: 20px 60px;
+			border-top: 7px solid #084772;
+			border-right: 7px solid #084772;
+			border-radius: 0 30px 0 0;
+			position: relative;
+			right: -3.5px
+		}
+
+		.main-timeline2 .icon {
+			display: block;
+			width: 50px;
+			height: 50px;
+			line-height: 50px;
+			border-radius: 50%;
+			background: #e84c47;
+			border: 1px solid #fff;
+			text-align: center;
+			font-size: 25px;
+			color: #e84c47;
+			box-shadow: 0 0 0 2px #e84c47;
+			position: absolute;
+			top: -30px;
+			left: 0
+		}
+
+		.main-timeline2 .timeline-content {
+			display: block;
+			padding: 30px 10px 10px;
+			border-radius: 20px;
+			background: #e84c47;
+			color: #fff;
+			position: relative
+		}
+
+		.main-timeline2 .timeline-content:hover {
+			text-decoration: none;
+			color: #fff
+		}
+
+		.main-timeline2 .timeline-content:after,
+		.main-timeline2 .timeline-content:before {
+			content: "";
+			display: block;
+			width: 10px;
+			height: 50px;
+			border-radius: 10px;
+			background: #e84c47;
+			border: 1px solid #fff;
+			position: absolute;
+			top: -35px;
+			left: 50px
+		}
+
+		.main-timeline2 .timeline-content:after {
+			left: auto;
+			right: 50px
+		}
+
+		.main-timeline2 .title {
+			font-size: 24px;
+			margin: 0;
+			text-transform: capitalize;
+			color: #ffffff;
+			padding-left: 15px;
+			margin-bottom: 15px;
+		}
+
+		.main-timeline2 .description {
+			font-size: 15px;
+			letter-spacing: 1px;
+			margin: 0 0 5px;
+			color: #ffffff;
+			padding-left: 15px;
+		}
+
+		.main-timeline2 .timeline:nth-child(2n) {
+			border-right: none;
+			border-left: 7px solid #084772;
+			border-radius: 30px 0 0;
+			right: auto;
+			left: -3.5px
+		}
+
+		.main-timeline2 .timeline:nth-child(2n) .icon {
+			left: auto;
+			right: 0;
+			box-shadow: 0 0 0 2px #4bd9bf
+		}
+
+		.main-timeline2 .timeline:nth-child(2) {
+			margin-top: 130px
+		}
+
+		.main-timeline2 .timeline:nth-child(odd) {
+			margin: -130px 0 30px
+		}
+
+		.main-timeline2 .timeline:nth-child(even) {
+			margin-bottom: 80px
+		}
+
+		.main-timeline2 .timeline:first-child,
+		.main-timeline2 .timeline:last-child:nth-child(even) {
+			margin: 0 0 30px
+		}
+
+		.main-timeline2 .timeline:nth-child(2n) .icon,
+		.main-timeline2 .timeline:nth-child(2n) .timeline-content,
+		.main-timeline2 .timeline:nth-child(2n) .timeline-content:after,
+		.main-timeline2 .timeline:nth-child(2n) .timeline-content:before {
+			background: #4bd9bf
+		}
+
+		.main-timeline2 .timeline:nth-child(3n) .icon,
+		.main-timeline2 .timeline:nth-child(3n) .timeline-content,
+		.main-timeline2 .timeline:nth-child(3n) .timeline-content:after,
+		.main-timeline2 .timeline:nth-child(3n) .timeline-content:before {
+			background: #ff9e09
+		}
+
+		.main-timeline2 .timeline:nth-child(3n) .icon {
+			box-shadow: 0 0 0 2px #ff9e09
+		}
+
+		.main-timeline2 .timeline:nth-child(4n) .icon,
+		.main-timeline2 .timeline:nth-child(4n) .timeline-content,
+		.main-timeline2 .timeline:nth-child(4n) .timeline-content:after,
+		.main-timeline2 .timeline:nth-child(4n) .timeline-content:before {
+			background: #3ebae7
+		}
+
+		.main-timeline2 .timeline:nth-child(4n) .icon {
+			box-shadow: 0 0 0 2px #3ebae7
+		}
+
+		.main-timeline2 .timeline:nth-child(5n) a {
+			background-color: #6d41a1;
+		}
+
+		.main-timeline2 .timeline:nth-child(5n) a::before,
+		.main-timeline2 .timeline:nth-child(5n) a::after {
+			background-color: #6d41a1;
+		}
+
+		.main-timeline2 .timeline:nth-child(5n) span {
+			background-color: #6d41a1;
+			color: #6d41a1;
+			box-shadow: 0 0 0 2px #6d41a1;
+		}
+
+		.main-timeline2 .timeline:nth-child(6n) .timeline-content {
+			background-color: #13afae;
+		}
+
+		.main-timeline2 .timeline:nth-child(6n) .timeline-content::before,
+		.main-timeline2 .timeline:nth-child(6n) .timeline-content::after {
+			background-color: #13afae;
+		}
+
+		.main-timeline2 .timeline:nth-child(6n) .icon {
+			background-color: #13afae;
+			color: #13afae;
+			box-shadow: 0 0 0 2px #13afae;
+		}
+
+		.icon.fa-globe {
+			color: #e84c47;
+		}
+
+		.icon.fa-rocket {
+			color: #4bd9bf;
+		}
+
+		.icon.fa-briefcase {
+			color: #ff9e09;
+		}
+
+		.icon.fa-mobile {
+			color: #3ebae7;
+		}
+
+		.main-timeline5 .timeline:nth-of-type(5) .timeline-content {
+			background-color: #e97e2e;
+		}
+
+		.main-timeline5 .timeline:nth-of-type(5) .timeline-icon {
+			border-top-color: #e97e2e;
+			border-right-color: #e97e2e;
+		}
+
+		.main-timeline5 .timeline:nth-of-type(5) .timeline-content:before {
+			background: #e97e2e;
+		}
+
+		@media only screen and (max-width:767px) {
+			.main-timeline2:before {
+				left: 0;
+				right: auto
+			}
+
+			.main-timeline2 .timeline,
+			.main-timeline2 .timeline:nth-child(even),
+			.main-timeline2 .timeline:nth-child(odd) {
+				width: 100%;
+				float: none;
+				padding: 20px 30px;
+				margin: 0 0 30px;
+				border-right: none;
+				border-left: 7px solid #084772;
+				border-radius: 30px 0 0;
+				right: auto;
+				left: 0
+			}
+
+			.main-timeline2 .icon {
+				left: auto;
+				right: 0
+			}
+		}
+
+		@media only screen and (max-width:480px) {
+			.main-timeline2 .title {
+				font-size: 18px
+			}
+		}
+
+		/**/
+	</style>
+</head>
+
+<body>
+	<!-- whole screen container -->
+	<div class="container-fluid">
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Croissant+One&family=Lato:wght@900&family=Poppins:wght@900&display=swap');
+		  </style>
+		<!-- banner -->
+		<div class="row text-center banner">
+			<p>
+			<h1 class="outlined-text" style="font-size: 50px;">Startup AYUSH Portal</h1>
+			<h5 class="outlined-text">Welcome To The Unified HUB of AYUSH</h5>
+			</p>
+		</div>
+		<div class="row banner-line">
+			<span class="align-center banner-line-text">One stop solution for all your AYUSH related needs</span>
+		</div>
+
+		<!-- navigation bar -->
+		<nav class="row navbar navbar-expand-lg bg-body-tertiary fixed-top">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="/scrollimage.html">
+					<img src="logo.png" class="img-fluid" alt="Logo" width="30">
+				</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+					aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarCollapse">
+					<ul class="navbar-nav mx-auto">
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="/scrollimage.html">Home</a>
+						</li>
+						<div class="dropdown">
+							<button class="dropdown-btn">Services</button>
+							<div class="dropdown-content">
+								<a href="#">Location Based</a>
+								<a href="#">Checkups</a>
+								<a href="#">Health Progress</a>
+							</div>
+						</div>
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="#news.html">News/Updates</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="/about.html">About</a>
+						</li>
+					</ul>
+					<div class="d-flex">
+						<a href="/login.html"><button class="btn btn-outline-success">Sign In</button></a>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+		<div class="container-fluid text-center">
+			<!-- "DO NOT CHANGE" Row for news section and glossary -->
+			<div class="row">
+				<!-- News Section -->
+				<div class="col-md-4">
+					<div class="container-fluid news-section-heading">
+						<h4>News Section</h4>
+					</div>
+					<div class="news-section">
+						<div class="news-article">
+							<a
+								href="https://economictimes.indiatimes.com/industry/healthcare/biotech/healthcare/india-has-seen-massive-growth-in-the-ayush-industry-dr-dinesh-baruah-central-ayurveda/articleshow/101550960.cms">Massive
+								growth in AYUSH industry</a>
+						</div>
+						<div class="news-article">
+							<a
+								href="https://economictimes.indiatimes.com/news/economy/policy/union-budget-gives-major-emphasis-on-increasing-ayush-services-scientific-research/articleshow/97533988.cms">AYUSH
+								Budget to increase</a>
+						</div>
+						<div class="news-article">
+							<a
+								href="https://economictimes.indiatimes.com/news/india/international-yoga-day-2023-trifed-and-ministry-of-ayush-collaborate-to-promote-tribal-artistry-by-supplying-34000-yoga-mats/articleshow/101134885.cms">34,000
+								Yoga Mats for the Tribals</a>
+						</div>
+						<div class="news-article">
+							<a
+								href="https://economictimes.indiatimes.com/news/india/union-minister-sarbananda-sonowal-calls-for-integrated-ayush-departments-in-leading-state-hospitals-of-north-eastern-region/articleshow/103073431.cms">North
+								East contribution</a>
+						</div>
+						<div class="news-article">
+							<a
+								href="https://economictimes.indiatimes.com/news/india/first-ayush-survey-results-by-year-end/articleshow/102024112.cms">Most
+								awaited AYUSH Results!</a>
+						</div>
+						<div class="news-article">
+							<a
+								href="https://economictimes.indiatimes.com/industry/healthcare/biotech/healthcare/icmr-ayush-ministry-sign-mou-for-collaboration-on-health-research/articleshow/100163400.cms">Biggest
+								Collaboration Ever!</a>
+						</div>
+						<div class="news-article">
+							<a
+								href="https://economictimes.indiatimes.com/industry/services/travel/itdc-inks-pact-with-ayush-ministry-for-promoting-medical-tourism/articleshow/97277211.cms">Tourism
+								to promote ayush</a>
+						</div>
+						<div class="news-article">
+							<a
+								href="https://www.moneycontrol.com/news/economy/policy/ayush-visa-introduced-foreign-nationals-can-now-seek-treatment-under-indian-systems-of-medicine-11084571.html">Foreigners
+								can seek indian treatment</a>
+						</div>
+						<div class="news-article">
+							<a
+								href="https://www.moneycontrol.com/news/trends/health-trends/ima-opposes-one-week-of-mandatory-ayush-training-for-medical-interns-7178871.html">Mandatory
+								AYUSH training for medical interns</a>
+						</div>
+						<div class="news-article">
+							<a
+								href="https://www.moneycontrol.com/news/opinion/technology-can-plug-the-gaps-in-last-mile-healthcare-delivery-4766141.html">Technology
+								to aid in the medical delivery</a>
+						</div>
+						<div class="news-article">
+							<a
+								href="https://www.moneycontrol.com/news/business/companies/india-us-agree-to-improve-qualityayush-products-1030394.html">India
+								& US agreements over AYUSH</a>
+						</div>
+						<div class="news-article">
+							<a
+								href="https://economictimes.indiatimes.com/industry/banking/finance/insure/health-policy-soon-with-mix-of-ayush-modern-medicine/articleshow/99222943.cms">New
+								Health Policy</a>
+						</div>
+						<div class="news-article">
+							<a
+								href="https://www.moneycontrol.com/news/trends/current-affairs-trends/ayurvedic-hospital-patients-can-seek-health-cover-govt-917734.html">Ayurvedic
+								patients can seek healthh cover</a>
+						</div>
+						<div class="news-article">
+							<a
+								href="https://www.moneycontrol.com/news/business/companies/indias-shareglobal-herbal-medicinal-market-is-05-govt-929205.html">India's
+								global share in herbal market</a>
+						</div>
+						<div class="news-article">
+							<a
+								href="https://www.moneycontrol.com/news/business/personal-finance/unveilscopeayush-under-health-insurance-policy-931762.html">Unveil
+								the scope of AYUSH under health insurance policy
+							</a>
+						</div>
+						<div class="news-article">
+							<a
+								href="https://www.moneycontrol.com/news/trends/current-affairs-trends/nsso-to-survey-16000-homes-on-public-use-of-traditional-medicine-ayush-secretary-tells-news18-8427281.html">16000
+								homes to be surveyed n traditional medicinal use</a>
+						</div>
+						<div class="news-article">
+							<a
+								href="https://www.thehansindia.com/life-style/health/ayurveda-remarkable-for-improving-sleep-disorder-ayush-654478">Ayurveda
+								'remarkable' for improving sleep disorder</a>
+						</div>
+						<div class="news-article">
+							<a
+								href="https://www.thehansindia.com/news/cities/hyderabad/dos-donts-for-ayurveda-unani-practitioners-683992">Dos
+								& don'ts for Ayurveda & Unani practitioners</a>
+						</div>
+						<div class="news-article">
+							<a
+								href="https://www.thehansindia.com/life-style/health/all-india-institute-of-ayurveda-announces-master-chef-competition-to-promote-ayush-ethos-for-food-736660">Masterchef
+								Competition to promote AYUSH</a>
+						</div>
+						<div class="news-article">
+							<a
+								href="https://www.thehansindia.com/business/initiative-like-one-herb-one-standard-paves-way-for-expansion-of-ayush-systems-794521">"One
+								herb, One Standard" paves way for AYUSH</a>
+						</div>
+						<div class="news-article">
+							<a
+								href="https://www.thehansindia.com/news/national/ima-opposes-ayush-training-for-medical-students-696077">IMA
+								opposes AYUSH trainin for medical stu</a>
+						</div>
+						<div class="news-article">
+							<a
+								href="https://economictimes.indiatimes.com/industry/healthcare/biotech/healthcare/india-has-seen-massive-growth-in-the-ayush-industry-dr-dinesh-baruah-central-ayurveda/articleshow/101550960.cms ">Massive
+								Growth of AYUSH Sector in India</a>
+						</div>
+						<div class="news-article">
+							<a
+								href="https://economictimes.indiatimes.com/news/india/nepal-seeks-indias-help-in-ayurveda-research/articleshow/98456800.cms">India
+								to Nepal's Aid in Ayurveda</a>
+						</div>
+						<div class="news-article">
+							<a
+								href="https://economictimes.indiatimes.com/news/india/centre-increases-financial-support-for-ayush-colleges/articleshow/86119949.cms">Centre
+								increases financial support for Ayush colleges</a>
+						</div>
+					</div>
+				</div>
+
+				<!-- Glossary -->
+				<div class="col text-center">
+					<div class="container-fluid glossary-section-heading">
+						<h4>Glossary</h4>
+					</div>
+					<div id="carouselExampleAutoplaying" class="carousel slide glossary" data-bs-ride="carousel">
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<img src="https://ayush.gov.in/images/carosel/a12.jpg" class="d-block w-100 img-fluid" alt="image-1">
+							</div>
+							<div class="carousel-item">
+								<img src="https://www.homeopathy360.com/wp-content/uploads/Covid-19-Care-Course-1.png"
+									class="d-block w-100 img-fluid" alt="image-2">
+							</div>
+							<div class="carousel-item">
+								<img
+									src="https://scontent.fbom19-3.fna.fbcdn.net/v/t1.6435-9/121547015_3403487889876448_6772865305874255514_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=0g3zeLKAMdQAX8czNqK&_nc_ht=scontent.fbom19-3.fna&oh=00_AfDxNn0dcJOPaBOqLB5GEGgFd1z0g1xNjsEYPapjkD1rPA&oe=6537F7B0"
+									class="d-block w-100 img-fluid" alt="image-3">
+							</div>
+							<div class="carousel-item">
+								<img src="https://img.ap7am.com/bimg/cr-20230331pn6426d8b601f81.jpg" class="d-block w-100 img-fluid"
+									alt="image-4">
+							</div>
+							<div class="carousel-item">
+								<img src="https://www.indiaties.in/wp-content/uploads/2020/09/ayush-ministry-599x381.jpg"
+									class="d-block w-100 img-fluid" alt="image-5">
+							</div>
+							<div class="carousel-item">
+								<img
+									src="https://viewstoday.in/wp-content/uploads/2022/11/0be9947370f59ca9c5e3ad6b9654700ce16b22684ac6a63954916eb0f08453bd.0.jpg"
+									class="d-block w-100 img-fluid" alt="image-6">
+							</div>
+							<div class="carousel-item">
+								<img
+									src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYBDtzNgvNqMafO08Z9jJXXT3z2t3vjD-3R61S6rXSeFNXn2yzaGkG8s9aeq_eCR0htLo&usqp=CAU"
+									class="d-block w-100 img-fluid" alt="image-7">
+							</div>
+						</div>
+						<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+							data-bs-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						</button>
+						<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+							data-bs-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<hr>
+
+		<!-- A Y U S H buttons with popovers -->
+		<div class="container text-center">
+			<div class="row justify-content-center">
+				<div class="col-12 col-sm-2">
+					<a href="/ayurved.html" class="btn btn-secondary btn-cool" data-bs-placement="bottom" data-bs-trigger="manual"
+						id="popover-ayurveda">A</a>
+					<script>
+						var popover = null;
+
+						document.getElementById('popover-ayurveda').addEventListener('click', function (e) {
+							e.preventDefault();
+							var content = "Ayurveda, the ancient system of medicine with roots tracing back over 5,000 years in India, places profound emphasis on achieving equilibrium between mind, body, and spirit. It advocates a personalized approach to healthcare, harnessing the therapeutic potential of natural remedies, dietary modifications, and lifestyle adjustments to promote holistic well-being. <a href='/ayurved.html'>Read more...</a>";
+							popover = new bootstrap.Popover(this, {
+								content: content,
+								html: true
+							});
+							popover.show();
+						});
+
+						// Close the popover when clicking outside
+						document.addEventListener('click', function (e) {
+							if (popover && !e.target.matches('#popover-ayurveda, .popover *')) {
+								popover.dispose();
+								popover = null;
+							}
+						});
+					</script>
+
+				</div>
+				<div class="col-12 col-sm-2">
+					<a href="/yoga.html" class="btn btn-secondary btn-cool" data-bs-placement="bottom" data-bs-trigger="manual"
+						id="popover-yoga">Y</a>
+					<script>
+						var popoverYoga = null;
+
+						document.getElementById('popover-yoga').addEventListener('click', function (e) {
+							e.preventDefault();
+							var content = "Yoga, often heralded as the science of self-realization, originated in India and has gained global recognition for its transformative impact on physical, mental, and spiritual health. In parallel, Naturopathy advocates natural healing through the judicious application of dietary choices, exercise, and lifestyle modifications. These two facets, Yoga and Naturopathy, impeccably align with AYUSH's overarching principles. <a href='/yoga.html'>Read more...</a>";
+							popoverYoga = new bootstrap.Popover(this, {
+								content: content,
+								html: true
+							});
+							popoverYoga.show();
+						});
+
+						// Close the popover when clicking outside
+						document.addEventListener('click', function (e) {
+							if (popoverYoga && !e.target.matches('#popover-yoga, .popover *')) {
+								popoverYoga.dispose();
+								popoverYoga = null;
+							}
+						});
+					</script>
+				</div>
+				<div class="col-12 col-sm-2">
+					<a href="/unani.html" class="btn btn-secondary btn-cool" data-bs-placement="bottom" data-bs-trigger="manual"
+						id="popover-unani">U</a>
+					<script>
+						var popoverUnani = null;
+
+						document.getElementById('popover-unani').addEventListener('click', function (e) {
+							e.preventDefault();
+							var content = "Unani, a traditional system of medicine with its origins in ancient Greece, evolved in the crucible of the Middle East and South Asia. This system places reliance on herbal medicines and the delicate balance of bodily humors as the cornerstone of healing and restoration.. <a href='/unani.html'>Read more...</a>";
+							popoverUnani = new bootstrap.Popover(this, {
+								content: content,
+								html: true
+							});
+							popoverUnani.show();
+						});
+
+						// Close the popover when clicking outside
+						document.addEventListener('click', function (e) {
+							if (popoverUnani && !e.target.matches('#popover-unani, .popover *')) {
+								popoverUnani.dispose();
+								popoverUnani = null;
+							}
+						});
+					</script>
+				</div>
+				<div class="col-12 col-sm-2">
+					<a href="/siddha.html" class="btn btn-secondary btn-cool" data-bs-placement="bottom" data-bs-trigger="manual"
+						id="popover-siddha">S</a>
+					<script>
+						var popoverSiddha = null;
+
+						document.getElementById('popover-siddha').addEventListener('click', function (e) {
+							e.preventDefault();
+							var content = "Siddha medicine, hailing from the Tamil region of India, is an age-old system that draws upon the potency of herbs, minerals, and spiritual practices to heal ailments. It stands out for its profound connection with spirituality.<a href='/siddha.html'>Read more...</a>";
+							popoverSiddha = new bootstrap.Popover(this, {
+								content: content,
+								html: true
+							});
+							popoverSiddha.show();
+						});
+
+						// Close the popover when clicking outside
+						document.addEventListener('click', function (e) {
+							if (popoverSiddha && !e.target.matches('#popover-siddha, .popover *')) {
+								popoverSiddha.dispose();
+								popoverSiddha = null;
+							}
+						});
+					</script>
+				</div>
+				<div class="col-12 col-sm-2">
+					<a href="/homeopathy.html" class="btn btn-secondary btn-cool" data-bs-placement="bottom"
+						data-bs-trigger="manual" id="popover-homeopathy">H</a>
+					<script>
+						var popoverHomeopathy = null;
+
+						document.getElementById('popover-homeopathy').addEventListener('click', function (e) {
+							e.preventDefault();
+							var content = "Homeopathy, a system of medicine crafted by Samuel Hahnemann in the 18th century, operates on the intriguing premise of 'like cures like.' It utilizes highly diluted substances to stimulate the body's innate healing mechanisms.<a href='/homeopathy.html'>Read more...</a>";
+							popoverHomeopathy = new bootstrap.Popover(this, {
+								content: content,
+								html: true
+							});
+							popoverHomeopathy.show();
+						});
+
+						// Close the popover when clicking outside
+						document.addEventListener('click', function (e) {
+							if (popoverHomeopathy && !e.target.matches('#popover-homeopathy, .popover *')) {
+								popoverHomeopathy.dispose();
+								popoverHomeopathy = null;
+							}
+						});
+					</script>
+				</div>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class="container-fluid card-section">
+
+			<div class="row gx-3">
+			  <div class="col-md-4 float-md-start">
+				<img class="img-fluid" src="investortestimonial.png">
+			  </div>
+		  
+			  <div class="col-md-8 float-md-end">
+				<div class="card">
+				  <img src="https://th.bing.com/th/id/OIG.7xAGIediFSyN2SmEFLMP?pid=ImgGn" class="card-img-top" height="300px" alt="investor">
+				  <div class="card-body">
+					<a style="font-family: lemon milk;">
+					  <p>
+						<h5>Investors</h5>
+					  </p>
+					</a>
+					<p>Your Path to Financial Prosperity</p>
+					<p><a href="/login.html">Register here</a></p>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		  
+		  
+
+		<div class="container-fluid card-section">
+			<div class="row gx-3">
+
+				<div class="col-md-4">
+					<div class="card">
+						<img src="https://th.bing.com/th/id/OIG.to2AYaKbJa4NwxQtmknp?pid=ImgGn" class="card-img-top" height="500px"
+							alt="startup">
+						<div class="card-body">
+							<a style="font-family: lemon milk;">
+								<p>
+									<h5>Startups</h5>
+								</p>
+							</a>
+							<p>Revolutionizing Healthcare through Startups</p>
+							<p><a href="/login.html">Register here</a></p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-8">
+					<img class="img-fluid" src="startuptestimonial.png" style="margin-top: 26px;">
+				  </div>
+				</div>
+			  </div>
+		
+
+		<div class="container-fluid card-section">
+			<div class="row gx-3">
+
+				<div class="col-md-8">
+					<img class="img-fluid" src="Artboard 1.png">
+				</div>
+				<div class="col-md-4">
+					<div class="card">
+						<img src="https://th.bing.com/th/id/OIG.EJiYj80vSQDzQ9zHld9O?pid=ImgGn" class="card-img-top" height="300px" alt="public">
+						<div class="card-body">
+							<a style="font-family: lemon milk;">
+								<p>
+									<h5>Public Users</h5>
+								</p>
+							</a>
+							<p>Your Guide to Public Health</p>
+							<p><a href="/login.html">Register here</a></p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<hr>
+
+		<!-- About Us Section -->
+		<div class="row">
+			<div class="row text-center">
+				<a style="font-family: lemon milk;"><p><h2><b>About Us</b></h2></p></a>
+				
+			</div>
+			<hr>
+			<div class="container-fluid">
+				<div class="main-timeline2">
+					<div class="timeline">
+						<span class="icon fa fa-globe"></span>
+						<div class="timeline-content">
+							<a style="font-family: lemon milk;"><p><h3 class="title">Welcome to Ayush Portal: Your Holistic Health Hub</h3></p></a>
+							<p class="description">At Ayush Portal, we bridge ancient traditions with modern wellness, focusing on Ayurveda, Yoga, Unani, Siddha, and Homeopathy (AYUSH). Our platform connects health seekers, startups, and investors.</p>
+						</div>
+					</div>
+					<div class="timeline">
+						<span class="icon fa fa-rocket"></span>
+						<div class="timeline-content">
+							<a style="font-family: lemon milk;"><p><h3 class="title">Connecting Health Seekers with AYUSH Wisdom</h3></p></a>
+							<p class="description">Explore holistic health at Ayush Portal. Find qualified practitioners and wellness options, including Ayurvedic, yoga, homeopathy, and more.</p>
+						</div>
+					</div>
+					<div class="timeline">
+						<span class="icon fa fa-briefcase"></span>
+						<div class="timeline-content">
+							<a style="font-family: lemon milk;"><p><h3 class="title">Startups, Meet Investors</h3></p></a>
+							<p class="description">Entrepreneurs, bring your AYUSH ideas to life with Ayush Portal. Connect with investors who share your vision.</p>
+						</div>
+					</div>
+					<div class="timeline">
+						<span class="icon fa fa-mobile"></span>
+						<div class="timeline-content">
+							<a style="font-family: lemon milk;"><p><h3 class="title">A Hub for AYUSH Collaboration</h3></p></a>
+							<p class="description">We foster collaboration between healthcare providers and AYUSH startups, combining tradition and technology for better health solutions.</p>
+						</div>
+					</div>
+					<div class="timeline">
+						<span class="icon fa fa-globe"></span>
+						<div class="timeline-content">
+							<a style="font-family: lemon milk;"><p><h3 class="title">Seamless Health Records</h3></p></a>
+							<p class="description">Manage your health records effortlessly, putting your wellness in your hands. Our digital tools empower personalized care</p>
+						</div>
+					</div>
+					<div class="timeline">
+						<span class="icon fa fa-rocket"></span>
+						<div class="timeline-content">
+							<a style="font-family: lemon milk;"><p><h3 class="title">Ayush Providers, Unite with Startups</h3></p></a>
+							<p class="description">Hospitals and doctors, collaborate with AYUSH startups to advance healthcare through tradition and innovation.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr>
+
+		<!-- Footer -->
+		<div class="row text-center footer">
+			<div class="row gx-3">
+
+				<div class="col">
+					<p>Have a Query?<br>Ask Us!</p>
+					<form>
+						<div class="mb-3"><input type="text" placeholder="Name"></div>
+						<div class="mb-3"><input type="text" placeholder="Email"></div>
+						<div class="mb-3"><input type="text" placeholder="Query"></div>
+						<button type="submit" class="btn btn-secondary">Ask</button>
+					</form>
+				</div>
+
+				<div class="col" style="padding-top: 80px;">
+						<a href="#"><img class="img-fluid" src="icons8-instagram-48 (1).png" height="34px" alt="Image 1"></a>
+						<a href="#"><img class="img-fluid" src="icons8-facebook-48.png" height="34px" alt="Image 2"></a>
+						<a href="#"><img class="img-fluid" src="icons8-twitter-48.png" height="34px" alt="Image 3"></a>
+					
+				</div>
+
+				<div class="col">
+					<div class="row">
+						<h4>CONTACT US</h4>
+					</div>
+					<div class="row">
+						<h6><img class="img-fluid" src="icons8-phone-48.png" height="40px"> +999,999,9999, +999,999,9999</h6>
+					</div>
+					<div class="row">
+						<h6><img class="img-fluid" src="icons8-mail-48.png" height="40px"> hotmail@gmail.com, gmail@hotmail.com</h6>
+					</div>
+				</div>
+			</div>
+
+			<hr>
+			<div class="row">
+				<p>&copy; 2023 Startup AYUSH Portal. All rights reserved.</p>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+		integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+		integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+		crossorigin="anonymous"></script>
+
+	<script>
+		var popovers = document.querySelectorAll('[data-bs-toggle="popover"]');
+		popovers.forEach(function (popoverTrigger) {
+			new bootstrap.Popover(popoverTrigger, {
+				trigger: 'hover',
+				placement: 'bottom',
+				container: 'body',
+				boundary: 'scrollParent',
+			});
+		});
+	</script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			// Get all the button elements
+			var buttons = document.querySelectorAll('[data-bs-toggle="popover"]');
+
+			// Loop through the buttons to add event listeners
+			buttons.forEach(function (button) {
+				// Get the popover instance
+				var popover = new bootstrap.Popover(button);
+
+				// Add mouseenter event listener
+				button.addEventListener('mouseenter', function () {
+					popover.show();
+				});
+
+				// Add mouseleave event listener
+				button.addEventListener('mouseleave', function () {
+					// Add a delay to hide the popover to allow moving to the popover content
+					setTimeout(function () {
+						popover.hide();
+					}, 1200);
+				});
+
+				// Add click event listener to prevent popover from hiding on click
+				button.addEventListener('click', function (event) {
+					event.preventDefault();
+				});
+			});
+		});
+	</script>
+</body>
+
+</html>
